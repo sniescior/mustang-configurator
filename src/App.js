@@ -1,17 +1,22 @@
 import Model from './model/Model';
+import Header from './Header';
+import Footer from './Footer';
 import './styles/main.css';
-import { Canvas } from '@react-three/fiber';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [configActive, setConfigActive] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        Welcome to Mustang configurator
-      </header>
-      <Model />
-      <div className='menu'>
-
+      <Header configActive={configActive} setConfigActive={setConfigActive} />
+      <div className={configActive ? "banner hidden" : "banner"}>
+        <h3>Classic Ford T-5</h3>
+        <h2>Mustang</h2>
       </div>
+      <Model />
+      <Footer configActive={configActive} setConfigActive={setConfigActive} />
     </div>
   );
 }

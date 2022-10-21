@@ -1,3 +1,253 @@
-body Canvas {
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  height: 100vh;
+  background-color: #eee;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Slab", serif;
+  position: relative;
+  overflow-y: hidden;
+}
+body .App-header {
+  border-bottom: 1px solid rgba(17, 17, 17, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+body .App-header .title {
+  padding: 20px;
+  margin: 0;
+  font-weight: 400;
+  position: relative;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+}
+body .App-header .title::after {
+  content: "";
+  position: absolute;
+  left: -40px;
+  bottom: 0;
+  display: block;
+  width: 1px;
+  height: 20px;
+  background-color: rgba(17, 17, 17, 0.5);
+}
+body .App-header .title::before {
+  content: "";
+  position: absolute;
+  right: -40px;
+  bottom: 0;
+  display: block;
+  width: 1px;
+  height: 20px;
+  background-color: rgba(17, 17, 17, 0.5);
+}
+body .App-header .button-wrapper {
+  margin: 0 20px;
+}
+body .App-header .button-wrapper.hidden {
+  visibility: hidden;
+  pointer-events: none;
+  z-index: -1000;
+}
+body .App-header .button-wrapper a {
+  color: #111;
+  text-decoration: none;
+  position: relative;
+}
+body .App-header .button-wrapper a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  transition: 0.2s ease-in-out;
   background-color: #be0000;
+  position: absolute;
+}
+body .App-header .button-wrapper a:hover {
+  color: #be0000;
+}
+body .App-header .button-wrapper a:hover::after {
+  width: 100%;
+}
+body .App-header .close-button {
+  position: absolute;
+  bottom: -40px;
+  left: 20px;
+  border: none;
+  background-color: transparent;
+  font-weight: 500;
+  z-index: 1;
+  opacity: 1;
+  transition: 0.2s ease-in-out;
+  transition: color 0.1s, opacity 0.4s;
+  cursor: pointer;
+}
+body .App-header .close-button:hover {
+  color: #be0000;
+}
+body .App-header .close-button.hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: -100;
+}
+body .App-header .close-button i {
+  margin-right: 12px;
+}
+body .banner {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding-top: 60px;
+  transition: 0.2s ease-in-out;
+}
+body .banner h3 {
+  color: rgba(17, 17, 17, 0.8);
+  margin: 0;
+  font-weight: 400;
+  font-size: 2em;
+}
+body .banner h2 {
+  font-weight: 800;
+  font-size: 4em;
+  margin: 0;
+}
+body .banner.hidden {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+@media screen and (max-width: 560px) {
+  body .banner h3 {
+    font-size: 1.4em;
+  }
+  body .banner h2 {
+    font-size: 2.5em;
+  }
+}
+body Canvas {
+  height: calc(100vh - 100px);
+}
+body footer {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80vw;
+  transform: translateX(-50%);
+  border: 1px solid rgba(17, 17, 17, 0.2);
+  cursor: pointer;
+  background-color: #eee;
+  box-sizing: border-box;
+}
+body footer .footer-wrapper {
+  transition: 0.3s ease-in-out;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+}
+body footer .footer-wrapper:hover {
+  background-color: #fff;
+}
+body footer .footer-wrapper:hover h2 .arrow {
+  opacity: 1;
+  right: -30px;
+}
+body footer .footer-wrapper.hidden {
+  position: absolute;
+  bottom: -100vh;
+  pointer-events: none;
+  opacity: 0;
+}
+body footer h2 {
+  font-size: 1.2em;
+  position: relative;
+}
+body footer h2 .arrow {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  right: -15px;
+  transform: translateY(-50%);
+  transition: 0.2s ease-in-out;
+}
+body footer i {
+  font-size: 1.4em;
+}
+body footer.configuration-menu {
+  background-color: #fff;
+  cursor: default;
+}
+body footer.configuration-menu .title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+body footer.configuration-menu.hidden {
+  bottom: -100%;
+}
+body footer.configuration-menu .color-input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+body footer.configuration-menu .color-input-wrapper .color-input {
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 50%;
+  background-color: #eee;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+body footer.configuration-menu .color-input-wrapper .color-input.selected {
+  box-shadow: 0 0 0 2pt rgba(17, 17, 17, 0.5);
+  border: 2px solid #eee;
+}
+body footer.configuration-menu .color-input-wrapper .color-input.selected:hover {
+  box-shadow: 0 0 0 2pt rgba(17, 17, 17, 0.5);
+}
+body footer.configuration-menu .color-input-wrapper .color-input:hover {
+  box-shadow: 0 0 0 2pt rgba(17, 17, 17, 0.2);
+}
+body footer.configuration-menu .color-input-wrapper .color-input.blue {
+  background-color: #5F9DF7;
+}
+body footer.configuration-menu .color-input-wrapper .color-input.red {
+  background-color: #be0000;
+}
+body footer.configuration-menu .color-input-wrapper .color-input.green {
+  background-color: #A8E890;
+}
+body footer.configuration-menu .color-input-wrapper .color-input.black {
+  background-color: #111;
+}
+body footer.configuration-menu .color-input-wrapper .color-input.orange {
+  background-color: #FF731D;
+}
+@media screen and (max-width: 520px) {
+  body footer.configuration-menu .footer-wrapper {
+    flex-direction: column;
+    padding: 20px 10px;
+    padding-bottom: 60px;
+  }
+}
+@media screen and (max-width: 680px) {
+  body .App-header .button-wrapper.hidden {
+    display: none;
+  }
+  body .App-header h2::after, body .App-header h2::before {
+    display: none;
+  }
+  body footer {
+    width: 100vw;
+  }
 }/*# sourceMappingURL=main.css.map */
