@@ -7,11 +7,11 @@ function ConfigurationMenu(props) {
                 Color palette
             </h2>
             <div className="color-input-wrapper">
-                <button className="color-input red selected"></button>
-                <button className="color-input blue"></button>
-                <button className="color-input green"></button>
-                <button className="color-input black"></button>
-                <button className="color-input orange"></button>
+                <button className={props.index == 0 ? "color-input red selected" : "color-input red"} onClick={() => props.setIndex(0)}></button>
+                <button className={props.index == 1 ? "color-input blue selected" : "color-input blue"} onClick={() => props.setIndex(1)}></button>
+                <button className={props.index == 2 ? "color-input green selected" : "color-input green"} onClick={() => props.setIndex(2)}></button>
+                <button className={props.index == 3 ? "color-input black selected" : "color-input black"} onClick={() => props.setIndex(3)}></button>
+                <button className={props.index == 4 ? "color-input orange selected" : "color-input orange"} onClick={() => props.setIndex(4)}></button>
             </div>
         </div>
     );

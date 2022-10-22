@@ -11,7 +11,7 @@ function Footer(props) {
                 <i className="bi bi-wrench-adjustable"></i>
             </div>
 
-            <ConfigurationMenu configActive={props.configActive} />
+            <ConfigurationMenu configActive={props.configActive} index={props.index} setIndex={props.setIndex} />
 
         </footer>
     )

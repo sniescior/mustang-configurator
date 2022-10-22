@@ -1,7 +1,7 @@
-import RedMustang from './RedMustang';
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import Mustang from './Mustang';
 
 function Model(props) {
     return (
@@ -17,7 +17,7 @@ function Model(props) {
             enablePan={false}
           />
           <Suspense fallback={null}>
-            <RedMustang position={[0,-0.5,0]} dimmed={props.dimmed} />
+            <Mustang position={[0,-0.5,0]} dimmed={props.dimmed} carPaint={props.carPaint} />
           </Suspense>
         </PerspectiveCamera>
       </Canvas>
